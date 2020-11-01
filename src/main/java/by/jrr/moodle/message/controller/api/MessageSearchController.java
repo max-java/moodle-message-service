@@ -2,6 +2,8 @@ package by.jrr.moodle.message.controller.api;
 
 import by.jrr.moodle.message.bean.Message;
 import by.jrr.moodle.message.bean.MessageStatus;
+import by.jrr.moodle.message.bean.MessageType;
+import by.jrr.moodle.message.model.Endpoint;
 import by.jrr.moodle.message.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +21,12 @@ public class MessageSearchController {
     MessageRepository messageRepository;
 
 
-    @GetMapping("mysearch/messages")
+    @GetMapping(Endpoint.NEW_USER_CONTACTS_FOR_TELEGRAM)
     public List<Message> findAllByTelegramStatus(@RequestParam Map<String, String> params) {
         try {
-           return messageRepository.findAllByTelegramStatus(MessageStatus.valueOf(params.get("telegramStatus")));
+           return messageRepository.findFirstByTelegramStatusAndType(
+                   MessageStatus.valueOf(params.get("telegramStatus")),
+                   MessageType.valueOf(params.get("type")));
         }catch (Exception ex) {
             // TODO: 30/10/2020 use ObjectMapper
         }
