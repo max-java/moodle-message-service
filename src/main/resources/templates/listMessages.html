@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>UUID</th>
+        <th>timestamp</th>
+        <th>lastupdate</th>
+        <th>type</th>
+        <th>telegram</th>
+        <th>email</th>
+        <th>message text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="message : ${messageList}">
+        <td th:text="${message.uuid}"></td>
+        <td th:text="${message.timeStamp}"></td>
+        <td th:text="${message.lastUpdate}"></td>
+        <td th:text="${message.type}"></td>
+        <td th:text="${message.telegramStatus}"></td>
+        <td th:text="${message.getEMailStatus()}"></td>
+        <td th:text="${message.messageText}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

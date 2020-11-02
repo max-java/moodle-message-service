@@ -10,3 +10,4 @@ encryption keys
 by executing in the following command in the project root directory:
     <pre>git update-index --assume-unchanged application-dev.properties</pre>
 
+# main branch used as brunch for CI builds
