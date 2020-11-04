@@ -14,9 +14,9 @@ import java.util.UUID;
 @Data
 public class Message {
 
-    @Id @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
-    private String Uuid;
+    @Id
+    @GeneratedValue
+    private Long Id;
     @CreationTimestamp
     private LocalDateTime timeStamp;
     @UpdateTimestamp

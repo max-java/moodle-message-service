@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     <tr th:each="message : ${messageList}">
-        <td th:text="${message.uuid}"></td>
+        <td th:text="${message.id}"></td>
         <td th:text="${message.timeStamp}"></td>
         <td th:text="${message.lastUpdate}"></td>
         <td th:text="${message.messageType}"></td>
