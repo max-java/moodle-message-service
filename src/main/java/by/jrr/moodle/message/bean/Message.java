@@ -2,6 +2,7 @@ package by.jrr.moodle.message.bean;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 import rx.BackpressureOverflow;
 
@@ -13,9 +14,9 @@ import java.util.UUID;
 @Data
 public class Message {
 
-    @Id
-    @GeneratedValue
-    private UUID Uuid;
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String Uuid;
     @CreationTimestamp
     private LocalDateTime timeStamp;
     @UpdateTimestamp
