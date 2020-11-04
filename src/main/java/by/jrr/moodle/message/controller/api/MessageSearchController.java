@@ -24,7 +24,7 @@ public class MessageSearchController {
     @GetMapping(Endpoint.NEW_USER_CONTACTS_FOR_TELEGRAM)
     public List<Message> findAllByTelegramStatus(@RequestParam Map<String, String> params) {
         try {
-           return messageRepository.findFirstByTelegramStatusAndType(
+           return messageRepository.findFirstByTelegramStatusAndAndMessageType(
                    MessageStatus.valueOf(params.get("telegramStatus")),
                    MessageType.valueOf(params.get("type")));
         }catch (Exception ex) {

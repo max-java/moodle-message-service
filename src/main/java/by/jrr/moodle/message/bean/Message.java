@@ -34,6 +34,6 @@ public class Message {
     private String messageText;
 
     @Enumerated(value = EnumType.STRING)
-    MessageType type;
+    MessageType messageType;
 
 }
