@@ -13,5 +13,5 @@ import java.util.UUID;
 @RepositoryRestResource
 public interface MessageRepository extends PagingAndSortingRepository<Message, UUID> {
 
-    List<Message> findFirstByTelegramStatusAndType(MessageStatus status, MessageType type);
+    List<Message> findFirstByTelegramStatusAndAndMessageType(MessageStatus status, MessageType type);
 }
