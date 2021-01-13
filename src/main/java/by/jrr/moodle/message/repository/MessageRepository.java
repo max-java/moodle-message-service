@@ -12,4 +12,6 @@ import java.util.List;
 public interface MessageRepository extends PagingAndSortingRepository<Message, Long> {
 
     List<Message> findFirstByTelegramStatusAndAndMessageType(MessageStatus status, MessageType type);
+    List<Message> findAllByChatToken(String chatToken);
+
 }
